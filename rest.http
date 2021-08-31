@@ -12,11 +12,26 @@ POST  http://localhost:8000/api/v1/
 Content-Type:application/json
 
 {
-    "email":"dds",
-    "password":"cncn"
+    "task":"exercise",
+    "hr":7
 }
+### update ticket
+PATCH http://localhost:8000/api/v1/
+Content-Type:application/json
+
+{
+    "_id":"dds",
+    "todo":true
+}
+
 
 
 
 ### delete ticket
 DELETE  http://localhost:8000/api/v1
+Content-Type:application/json
+
+{
+    "_id":"dds",
+    
+}
