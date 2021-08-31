@@ -15,6 +15,6 @@ All the API will follow the '{rootUrl}/api/v1' pattern
 | #   | Method   | Path | Description                                                                                                    |
 | --- | -------- | ---- | -------------------------------------------------------------------------------------------------------------- |
 | 1   | 'GET'    | '/'  | return all the tasks                                                                                           |
-| 1   | 'POST'   | '/'  | Expects task object stores task in the database and return the stored data or null if unable to store the data |
-| 1   | 'PATCH'  | '/'  | Expects id and the instruction on what to update in the database                                               |
-| 1   | 'DELETE' | '/'  | expects id and deletes data from database and returns successful or unsuccessful information                   |
+| 2   | 'POST'   | '/'  | Expects task object stores task in the database and return the stored data or null if unable to store the data |
+| 3   | 'PATCH'  | '/'  | Expects id and the instruction on what to update in the database                                               |
+| 4   | 'DELETE' | '/'  | expects id and deletes data from database and returns successful or unsuccessful information                   |
