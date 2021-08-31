@@ -4,8 +4,8 @@ const TaskListSchema = mongoose.Schema(
   {
     task: {
       type: String,
-      required: true,
-      default: "",
+      required: [true, "task must be provided"],
+      default: "chilling",
     },
     hr: {
       type: Number,

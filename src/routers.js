@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import { insertTask } from "./models/TaskList.model.js";
+import { insertTask, getTasks, getATask } from "./models/TaskList.model.js";
 
 router.all("/", (req, res, next) => {
   console.log("got hit");
@@ -8,9 +8,29 @@ router.all("/", (req, res, next) => {
   next();
 });
 //return all tasks
-router.get("/", (req, res) => {
-  res.json({ message: "return from get" });
+router.get("/:_id?", async (req, res) => {
+  const { _id } = req.params;
+  let result = null;
+  if (_id) {
+    result = await getATask(_id);
+  } else {
+    result = await getTasks(_id);
+  }
+
+  res.json({ message: "return from get", result });
 });
+//returns single tasks based on id
+// router.get("/:_id", async (req, res) => {
+
+//   const result = await getATask(_id);
+//   // console.log(_id);
+//   console.log(result);
+//   res.json({
+//     status: "success",
+//     message: result?._id ? "task found" : "Task not found",
+//     result,
+//   });
+// });
 
 //receives new  task and stores in database
 router.post("/", async (req, res) => {

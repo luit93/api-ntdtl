@@ -8,7 +8,7 @@ mongoClient();
 //middleware
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(morgan());
+app.use(morgan("tiny"));
 const PORT = 8000;
 
 app.use("/api/v1", routers);

@@ -1,10 +1,10 @@
 # API list for NTDTL app
 
 ### Fetch all tickets
-GET http://localhost:8000/api/v1
+GET http://localhost:8000/api/v1/612d714549a44dbd34294682/
 
-# ### fetch single ticket
-# GET http://localhost:8000/api/v1.ticketId/
+### fetch single ticket
+GET http://localhost:8000/api/v1/612d714549a44dbd34294682/
 
 
 ### create new ticket
@@ -12,8 +12,9 @@ POST  http://localhost:8000/api/v1/
 Content-Type:application/json
 
 {
-    "task":"exercise",
-    "hr":7
+    
+    "task":"doing nothing",
+    "hr":1
 }
 ### update ticket
 PATCH http://localhost:8000/api/v1/
