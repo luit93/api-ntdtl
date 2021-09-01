@@ -5,6 +5,7 @@ import {
   getTasks,
   getATask,
   deleteTasks,
+  updateTask,
 } from "./models/TaskList.model.js";
 
 router.all("/", (req, res, next) => {
@@ -49,17 +50,29 @@ router.post("/", async (req, res) => {
 });
 
 //update data in database
-router.patch("/", (req, res) => {
-  res.json({ message: "return from patch" });
+router.patch("/", async (req, res) => {
+  const result = await updateTask(req.body);
+  if (result?.id) {
+    console.log(req.body);
+    console.log(result);
+    return res.json({
+      status: "success",
+      message: " item was successfully updated",
+      result,
+    });
+  }
+  res.json({ status: "error", message: "unable to update" });
 });
 
 //delete data based on id
 router.delete("/", async (req, res) => {
+  const { ids } = req.body;
+  console.log(ids);
   console.log(req.body);
-  const result = await deleteTasks(req.body);
+  const result = await deleteTasks(ids);
   console.log(result);
-  if (result.deletedCount > 0) {
-    return res.json({ status: "success", message: "task deleted" });
+  if (result?.deletedCount > 0) {
+    return res.json({ status: "success", message: "tasks deleted" });
   }
   res.json({ status: "error", message: "item not found,runable to delete" });
 });

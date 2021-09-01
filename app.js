@@ -1,6 +1,8 @@
 import express from "express";
 import routers from "./src/routers.js";
 import morgan from "morgan";
+import cors from "cors";
+import helmet from "helmet";
 const app = express();
 // connect to mongodb
 import mongoClient from "./src/config/db.js";
@@ -9,6 +11,8 @@ mongoClient();
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(morgan("tiny"));
+app.use(cors());
+app.use(helmet());
 const PORT = 8000;
 
 app.use("/api/v1", routers);

@@ -13,7 +13,7 @@ Content-Type:application/json
 
 {
     
-    "task":"doing nothing",
+    "task":" nothing",
     "hr":1
 }
 ### update ticket
@@ -21,8 +21,8 @@ PATCH http://localhost:8000/api/v1/
 Content-Type:application/json
 
 {
-    "_id":"dds",
-    "todo":true
+    "id":"612eceb3a847a4c74a152202",
+    "toDo":true
 }
 
 
@@ -33,7 +33,7 @@ DELETE  http://localhost:8000/api/v1
 Content-Type:application/json
 
 {
-    "_id":"612da48f4c991fefb94c7e7b"
+    "_id":["612d71b249a44dbd34294684","612d78eb0b2e79144b265b35","612d83329d28463b256a3350"]
 
     
 }

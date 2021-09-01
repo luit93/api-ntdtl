@@ -58,11 +58,27 @@ export const getATask = async (_id) => {
   }
 };
 //update task
-
+export const updateTask = async ({ id, toDo }) => {
+  try {
+    const result = await TaskSchema.findByIdAndUpdate(
+      id,
+      { toDo },
+      { new: true }
+    );
+    return result;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
 //delete task
 export const deleteTasks = async (ids) => {
   try {
-    const result = await TaskSchema.deleteOne(ids);
+    const result = await TaskSchema.deleteMany({
+      id: {
+        $in: ids,
+      },
+    });
     return result;
   } catch (error) {
     console.log(error);
