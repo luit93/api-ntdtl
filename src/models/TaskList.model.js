@@ -60,3 +60,12 @@ export const getATask = async (_id) => {
 //update task
 
 //delete task
+export const deleteTasks = async (ids) => {
+  try {
+    const result = await TaskSchema.deleteOne(ids);
+    return result;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};

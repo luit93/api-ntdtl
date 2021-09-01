@@ -1,10 +1,10 @@
 # API list for NTDTL app
 
 ### Fetch all tickets
-GET http://localhost:8000/api/v1/612d714549a44dbd34294682/
+GET http://localhost:8000/api/v1/
 
 ### fetch single ticket
-GET http://localhost:8000/api/v1/612d714549a44dbd34294682/
+GET http://localhost:8000/api/v1/612da48f4c991fefb94c7e7b/
 
 
 ### create new ticket
@@ -33,6 +33,7 @@ DELETE  http://localhost:8000/api/v1
 Content-Type:application/json
 
 {
-    "_id":"dds",
+    "_id":"612da48f4c991fefb94c7e7b"
+
     
 }

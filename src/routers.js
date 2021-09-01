@@ -1,6 +1,11 @@
 import express from "express";
 const router = express.Router();
-import { insertTask, getTasks, getATask } from "./models/TaskList.model.js";
+import {
+  insertTask,
+  getTasks,
+  getATask,
+  deleteTasks,
+} from "./models/TaskList.model.js";
 
 router.all("/", (req, res, next) => {
   console.log("got hit");
@@ -49,7 +54,13 @@ router.patch("/", (req, res) => {
 });
 
 //delete data based on id
-router.delete("/", (req, res) => {
-  res.json({ message: "return from delete" });
+router.delete("/", async (req, res) => {
+  console.log(req.body);
+  const result = await deleteTasks(req.body);
+  console.log(result);
+  if (result.deletedCount > 0) {
+    return res.json({ status: "success", message: "task deleted" });
+  }
+  res.json({ status: "error", message: "item not found,runable to delete" });
 });
 export default router;
