@@ -66,7 +66,7 @@ router.patch("/", async (req, res) => {
 
 //delete data based on id
 router.delete("/", async (req, res) => {
-  const { ids } = req.body;
+  const ids = req.body;
   console.log(ids);
   console.log(req.body);
   const result = await deleteTasks(ids);
