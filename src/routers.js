@@ -45,10 +45,10 @@ router.get("/:_id?", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const result = await insertTask(req.body);
-    res.json({ status: "success", message: "return from post", result });
+    res.json({ status: "success", message: "New task has been added", result });
   } catch (error) {
     console.log(error);
-    res.json({ status: "failure", message: "return from post" });
+    res.json({ status: "failure", message: "Couldn't add new task" });
   }
 });
 
