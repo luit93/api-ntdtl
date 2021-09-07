@@ -15,15 +15,18 @@ router.all("/", (req, res, next) => {
 });
 //return all tasks
 router.get("/:_id?", async (req, res) => {
-  const { _id } = req.params;
-  let result = null;
-  if (_id) {
-    result = await getATask(_id);
-  } else {
-    result = await getTasks(_id);
+  try {
+    const { _id } = req.params;
+    let result = null;
+    if (_id) {
+      result = await getATask(_id);
+    } else {
+      result = await getTasks(_id);
+    }
+    res.json({ status: "success", message: "Here are the tasks", result });
+  } catch (error) {
+    res.json({ status: "error", message: "No results", result });
   }
-
-  res.json({ message: "return from get", result });
 });
 //returns single tasks based on id
 // router.get("/:_id", async (req, res) => {
