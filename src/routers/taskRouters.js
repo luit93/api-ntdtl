@@ -6,7 +6,7 @@ import {
   getATask,
   deleteTasks,
   updateTask,
-} from "./models/TaskList.model.js";
+} from "../models/tasks/TaskList.model.js";
 
 router.all("/", (req, res, next) => {
   console.log("got hit");

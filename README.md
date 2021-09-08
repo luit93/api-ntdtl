@@ -10,7 +10,7 @@ backend project built with node, express and mongodb for the front end NTDL app
 
 ## API
 
-All the API will follow the '{rootUrl}/api/v1' pattern
+All the API will follow the `{rootUrl}/api/v1/task` pattern
 
 | #   | Method   | Path    | Description                                                                                                    |
 | --- | -------- | ------- | -------------------------------------------------------------------------------------------------------------- |
@@ -18,3 +18,17 @@ All the API will follow the '{rootUrl}/api/v1' pattern
 | 2   | 'POST'   | '/'     | Expects task object stores task in the database and return the stored data or null if unable to store the data |
 | 3   | 'PATCH'  | '/'     | Expects id and the instruction on what to update in the database                                               |
 | 4   | 'DELETE' | '/'     | expects id and deletes data from database and returns successful or unsuccessful information                   |
+
+### user API
+
+All the user API will follow the `{rootUrl}/api/v1/user` pattern
+| # | Method | Path | Description |
+| --- | -------- | ------- | -------------------------------------------------------------------------------------------------------------- |
+
+<!-- | 1 | 'GET' | '/\_id' | "@\_id" based on the \_id, return the user | -->
+
+| 1 | 'POST' | '/' | Log in|
+| 2 | 'POST' | '/register' | create new user |
+
+<!-- | 3   | 'PATCH'  | '/'     | Expects id and the instruction on what to update in the database                                               |
+| 4   | 'DELETE' | '/'     | expects id and deletes data from database and returns successful or unsuccessful information   -->
