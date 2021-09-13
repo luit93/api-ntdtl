@@ -1,7 +1,8 @@
 # API list for NTDTL app
 
 ### Fetch all tickets
-GET http://localhost:8000/api/v1/
+GET http://localhost:8000/api/v1/task
+Authorization: 613eb674caf9fbc9dd88c6b1
 
 ### fetch single ticket
 GET http://localhost:8000/api/v1/612da48f4c991fefb94c7e7b/
@@ -13,7 +14,7 @@ Content-Type:application/json
 
 {
     
-    "task":" nothing 3",
+    "task":" nothing",
     "hr":1
 }
 ### update ticket
@@ -33,7 +34,24 @@ DELETE  http://localhost:8000/api/v1
 Content-Type:application/json
 
 {
-    "_id":["612ed2c3cd03ac93f33349ec","612ed2e3cd03ac93f33349f4"]
+    "_id":["612d71b249a44dbd34294684","612d78eb0b2e79144b265b35","612d83329d28463b256a3350"]
 
     
 }
+
+### create user
+POST http://localhost:8000/api/v1/user/register
+Content-Type:application/json
+
+{
+    "userName": "luit2"
+}
+
+### login user
+POST http://localhost:8000/api/v1/user/login
+Content-Type:application/json
+
+{
+    "userName": "tarzan"
+}
+
