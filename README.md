@@ -28,7 +28,8 @@ All the user API will follow the `{rootUrl}/api/v1/user` pattern
 <!-- | 1 | 'GET' | '/\_id' | "@\_id" based on the \_id, return the user | -->
 
 | 1 | 'POST' | '/' | Log in|
-| 2 | 'POST' | '/register' | create new user |
+| 2 | 'POST' | '/' | userName checked in database and returns info|
+| 3 | 'POST' | '/register' | create new user |
 
 <!-- | 3   | 'PATCH'  | '/'     | Expects id and the instruction on what to update in the database                                               |
 | 4   | 'DELETE' | '/'     | expects id and deletes data from database and returns successful or unsuccessful information   -->

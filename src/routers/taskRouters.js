@@ -16,12 +16,13 @@ router.all("/", (req, res, next) => {
 //return all tasks
 router.get("/:_id?", async (req, res) => {
   try {
+    const { authorization } = req.headers;
     const { _id } = req.params;
     let result = null;
     if (_id) {
       result = await getATask(_id);
     } else {
-      result = await getTasks(_id);
+      result = await getTasks(authorization);
     }
     res.json({ status: "success", message: "Here are the tasks", result });
   } catch (error) {
@@ -69,10 +70,11 @@ router.patch("/", async (req, res) => {
 
 //delete data based on id
 router.delete("/", async (req, res) => {
+  const { authorization } = req.headers;
   const ids = req.body;
   console.log(ids);
   console.log(req.body);
-  const result = await deleteTasks(ids);
+  const result = await deleteTasks(ids, authorization);
   console.log(result);
   if (result?.deletedCount > 0) {
     return res.json({ status: "success", message: "tasks deleted" });

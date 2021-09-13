@@ -12,6 +12,12 @@ const TaskListSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      default: null,
+      ref: "User",
+    },
     toDo: {
       type: Boolean,
       required: true,

@@ -1,7 +1,7 @@
 import express from "express";
 import taskRouters from "./src/routers/taskRouters.js";
 import userRouters from "./src/routers/userRouter.js";
-
+import { userAuth } from "./src/middleware/auth.middleware.js";
 import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
@@ -17,7 +17,7 @@ app.use(cors());
 app.use(helmet());
 const PORT = 8000;
 
-app.use("/api/v1/task", taskRouters);
+app.use("/api/v1/task", userAuth, taskRouters);
 app.use("/api/v1/user", userRouters);
 app.use("/", (req, res) => {
   res.send("You have reache the API of NTDTL");

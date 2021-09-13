@@ -39,12 +39,12 @@ export const insertTask = async (newTask) => {
 //   });
 // };
 //async method
-export const getTasks = async () => {
+export const getTasks = async (userId) => {
   try {
-    const result = await TaskSchema.find();
+    const result = await TaskSchema.find({ userId });
     return result;
   } catch (error) {
-    return error;
+    throw new error();
   }
 };
 //get single task
@@ -72,9 +72,10 @@ export const updateTask = async ({ id, toDo }) => {
   }
 };
 //delete task
-export const deleteTasks = async (ids) => {
+export const deleteTasks = async (ids, userId) => {
   try {
     const result = await TaskSchema.deleteMany({
+      userId,
       _id: {
         $in: ids,
       },
