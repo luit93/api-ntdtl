@@ -1,6 +1,6 @@
 import axios from "axios";
 const rootUrl =
-  process.env.NODE_ENV === "production "
+  process.env.NODE_ENV === "production"
     ? "/api/v1/user"
     : "http://localhost:5000/api/v1/user";
 
